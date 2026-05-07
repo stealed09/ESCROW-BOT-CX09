@@ -355,7 +355,7 @@ async def handle_admin_panel_cb(update: Update, ctx: ContextTypes.DEFAULT_TYPE, 
                     "https://api.oxapay.com/merchants/inquiry",
                     data=_json.dumps({
                         "merchant": state.oxapay_key,
-                        "trackId":  "00000000"
+                        "trackId": 1
                     }).encode(),
                     headers={"Content-Type": "application/json"}
                 )
@@ -2925,7 +2925,7 @@ async def cmd_checkoxapay(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
                 "https://api.oxapay.com/merchants/inquiry",
                 data=_json.dumps({
                     "merchant": state.oxapay_key,
-                    "trackId":  "00000000"
+                    "trackId": 1
                 }).encode(),
                 headers={"Content-Type": "application/json"}
             )
