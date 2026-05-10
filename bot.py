@@ -6078,6 +6078,6 @@ async def ge_group_message_handler(update: Update, ctx: ContextTypes.DEFAULT_TYP
     # ── BOTH AGREE detection ──
     if "BOTH AGREE" in norm or "BOTH AGREED" in norm:
         await handle_both_agree(update, ctx)
--e 
+
 if __name__ == "__main__":
     main()
