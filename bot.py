@@ -9026,7 +9026,7 @@ async def _generate_profile_card(
     draw.text((168,56), first_name.upper()[:16], fill=WHITE, font=f56)
     draw.text((170,118), f"@{username}", fill=GRAY, font=f18)
     if deals >= 10:
-        badge="✦ VERIFIED TRADER"; bw=draw.textlength(badge,font=f13)
+        badge="-------"; bw=draw.textlength(badge,font=f13)
         draw.rounded_rectangle([(170,142),(170+bw+16,162)], radius=6,
                                 fill=(*ACCENT,30), outline=(*ACCENT,100), width=1)
         draw.text((178,145), badge, fill=ACCENT2, font=f13)
@@ -9120,7 +9120,7 @@ async def cmd_profile(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
         if photos.total_count > 0:
             file_id = photos.photos[0][-1].file_id  # largest size
             tg_file = await ctx.bot.get_file(file_id)
-            pfp_buf = _io.BytesIO()
+            pfp_buf = io.BytesIO()
             await tg_file.download_to_memory(pfp_buf)
             pfp_buf.seek(0)
             pfp_bytes = pfp_buf.read()
@@ -9137,7 +9137,7 @@ async def cmd_profile(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
             rank=rank, level=level,
             pfp_bytes=pfp_bytes,
         )
-        card_buf = _io.BytesIO(card)
+        card_buf = io.BytesIO(card)
         await update.message.reply_photo(
             photo=card_buf,
             caption=(
